@@ -59,7 +59,7 @@ export default function Appetizers() {
   }, []);
 
   const handlePriceChange = (index: number, price: string) => {
-    setSelectedPrices({ selectedPrices, [index]: price }); // Atualizar o preço selecionado para o produto com o índice correspondente
+    setSelectedPrices({ selectedPrices, [index]: price });
   };
 
   return (
