@@ -6,7 +6,7 @@ import {
   ProductCardPrice,
 } from "../../components/ProductCard/ProductCard.style";
 
-export default function Beverages() {
+export default function Combos() {
   const [isLoading, setIsLoading] = useState(false);
   const [categories, setCategories] = useState([]);
   const [products, setProducts] = useState([]);
@@ -48,7 +48,7 @@ export default function Beverages() {
     }
   }
 
-  useEffect(() => { // busca os dados antes da tela 
+  useEffect(() => { 
     // setCategories(categoriesList);
     getCategories()
   }, []);
