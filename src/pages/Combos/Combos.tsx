@@ -33,8 +33,8 @@ export default function Combos() {
     }
   }
 
-  const getBeverages = async () => {
-    const url = "http://localhost:8000/beverages"
+  const getHamburgers = async () => {
+    const url = "http://localhost:8000/hamburgers"
     setIsLoading(true);
     try {
       const response = await fetch(url)
@@ -44,17 +44,16 @@ export default function Combos() {
     } catch (error) {
       console.log(error);
     } finally {
-      // setIsLoading(false)
+      setIsLoading(false);
     }
   }
 
   useEffect(() => { 
-    // setCategories(categoriesList);
     getCategories()
   }, []);
 
   useEffect(() => {
-    getBeverages()
+    getHamburgers()
   }, []);
 
   console.log(products);
@@ -79,14 +78,14 @@ export default function Combos() {
             products.map((product, index) => (
               <ProductCard key={index}>
                 <ProductCardContent>
-                  <h2>{product.title}</h2>
-                  <p>{product.description}</p>
+                  <h2>{`COMBO ${product.title}`}</h2>
+                  <p>{`${product.description} + BATATA TRADICIONAL e BEBIDA`}</p>
                   <Button onClick={() => { }}>Adicionar</Button>
                 </ProductCardContent>
                 <ProductCardPrice>
-                  {priceFormat(product.value)}
+                  {priceFormat(product.values.combo)}
                 </ProductCardPrice>
-                <img src={product.image[0]} alt={product.title} />
+                <img src={product.image[1]} alt={product.title} />
               </ProductCard>
             ))
           )
